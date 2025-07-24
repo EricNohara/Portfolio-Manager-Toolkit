@@ -24,8 +24,8 @@ export function useUserData(userEmail: string, apiKey: string) {
 
         const data = await res.json();
 
-        if (res.ok && data.userData) {
-          setUserData(data.userData);
+        if (res.ok && data.userInfo) {
+          setUserData(data.userInfo);
         } else {
           setUserData(null);
           setError(data.message || "Error loading user data");

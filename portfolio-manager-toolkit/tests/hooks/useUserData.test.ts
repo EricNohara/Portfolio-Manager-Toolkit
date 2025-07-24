@@ -4,7 +4,7 @@ import { useUserData } from "../../src/hooks/useUserData";
 
 globalThis.fetch = vi.fn();
 
-const mockUserData = { userData: { id: "1", email: "test@example.com" } };
+const mockUserData = { userInfo: { id: "1", email: "test@example.com" } };
 
 describe("useUserData", () => {
   beforeEach(() => {
@@ -23,7 +23,7 @@ describe("useUserData", () => {
 
     await waitFor(() => expect(result.current.loading).toBe(false));
 
-    expect(result.current.userData).toEqual(mockUserData.userData);
+    expect(result.current.userData).toEqual(mockUserData.userInfo);
     expect(result.current.error).toBeNull();
   });
 
