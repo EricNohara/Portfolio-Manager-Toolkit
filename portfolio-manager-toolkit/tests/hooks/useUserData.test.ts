@@ -21,13 +21,12 @@ describe("useUserData", () => {
       useUserData("test@example.com", "fake-api-key")
     );
 
-    await waitFor(() => expect(result.current.loading).toBe(false));
-
-    expect(result.current.userData).toEqual(mockUserData.userInfo);
-    expect(result.current.error).toBeNull();
+    await waitFor(() => {
+      expect(result.current).toEqual(mockUserData.userInfo);
+    });
   });
 
-  it("returns error on failure", async () => {
+  it("returns null on failure", async () => {
     (fetch as any).mockResolvedValueOnce({
       ok: false,
       json: async () => ({ message: "Error loading user data" }),
@@ -37,9 +36,8 @@ describe("useUserData", () => {
       useUserData("test@example.com", "fake-api-key")
     );
 
-    await waitFor(() => expect(result.current.loading).toBe(false));
-
-    expect(result.current.userData).toBeNull();
-    expect(result.current.error).toBe("Error loading user data");
+    await waitFor(() => {
+      expect(result.current).toBeNull();
+    });
   });
 });

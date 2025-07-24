@@ -6,13 +6,9 @@ const NEXT_PUBLIC_PORTFOLIO_API_URL: string =
 
 export function useUserData(userEmail: string, apiKey: string) {
   const [userData, setUserData] = useState<IUserData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchUserData = async () => {
-      setLoading(true);
-      setError(null);
       try {
         const res = await fetch(NEXT_PUBLIC_PORTFOLIO_API_URL, {
           method: "GET",
@@ -24,22 +20,15 @@ export function useUserData(userEmail: string, apiKey: string) {
 
         const data = await res.json();
 
-        if (res.ok && data.userInfo) {
-          setUserData(data.userInfo);
-        } else {
-          setUserData(null);
-          setError(data.message || "Error loading user data");
-        }
+        if (res.ok && data.userInfo) setUserData(data.userInfo);
+        else setUserData(null);
       } catch (error: any) {
         setUserData(null);
-        setError(error.message || "Network error");
-      } finally {
-        setLoading(false);
       }
     };
 
     fetchUserData();
   }, [userEmail, apiKey]);
 
-  return { userData, loading, error };
+  return userData;
 }
