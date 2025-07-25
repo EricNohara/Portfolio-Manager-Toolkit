@@ -85,9 +85,9 @@ export function SkillsTable({
   return (
     <Table theme={selectedTheme} style={style}>
       <colgroup>
-        <col style={{ width: "40%" }} />
-        <col style={{ width: "30%" }} />
-        <col style={{ width: "30%" }} />
+        <col style={{ width: "50%" }} />
+        <col style={{ width: "25%" }} />
+        <col style={{ width: "25%" }} />
       </colgroup>
       <thead>
         <TableRow theme={selectedTheme}>
