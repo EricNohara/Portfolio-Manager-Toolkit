@@ -7,3 +7,4 @@ export * from "./src/hooks/useUserData";
 
 // components
 export * from "./src/components/Greeting/Greeting";
+export * from "./src/components/SkillsTable/SkillsTable";
