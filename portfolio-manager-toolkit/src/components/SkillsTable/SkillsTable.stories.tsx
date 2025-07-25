@@ -1,5 +1,5 @@
 import { SkillsTable } from "./SkillsTable";
-import { mockUserData } from "../../../tests/mockUserData";
+import { mockUserData } from "../../../tests/testData";
 import { themes } from "../../themes";
 
 type ThemeName = keyof typeof themes;

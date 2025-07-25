@@ -1,5 +1,6 @@
 // interfaces and themes
 export * from "./src/interfaces/IUserData";
+export * from "./src/interfaces/ITheme";
 export * from "./src/themes";
 
 // hooks

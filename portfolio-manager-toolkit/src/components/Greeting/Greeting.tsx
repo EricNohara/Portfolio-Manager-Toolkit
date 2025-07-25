@@ -22,7 +22,8 @@ export function Greeting({
   style,
 }: ComponentProps) {
   const text: string = userData ? `Hi I'm ${userData.name}.` : message;
-  const selectedTheme: ITheme = themes[theme];
+  const selectedTheme: ITheme =
+    typeof theme === "string" ? themes[theme] : theme;
 
   return (
     <GreetingDiv theme={selectedTheme} style={style}>

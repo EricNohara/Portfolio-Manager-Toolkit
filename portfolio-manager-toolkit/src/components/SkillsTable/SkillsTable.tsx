@@ -52,7 +52,8 @@ export function SkillsTable({
   theme = "lightTheme",
   style,
 }: UserDataComponentProps) {
-  const selectedTheme: ITheme = themes[theme];
+  const selectedTheme: ITheme =
+    typeof theme === "string" ? themes[theme] : theme;
   const [sortBy, setSortBy] = useState<
     "name" | "proficiency" | "years_of_experience"
   >("name");

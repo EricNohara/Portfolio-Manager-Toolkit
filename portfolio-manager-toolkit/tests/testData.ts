@@ -1,4 +1,5 @@
 import { IUserData } from "../src/interfaces/IUserData";
+import { ITheme } from "../src/interfaces/ITheme";
 
 export const mockUserData: IUserData = {
   id: "u12345",
@@ -96,4 +97,23 @@ export const mockUserData: IUserData = {
       ],
     },
   ],
+};
+
+export const mockCustomTheme: ITheme = {
+  colors: {
+    primary: "#123456",
+    primaryAlternate: "#abcdef",
+    secondary: "#654321",
+    secondaryAlternate: "#fedcba",
+    tertiary: "#111111",
+    tertiaryAlternate: "#eeeeee",
+    background: "#f0f0f0",
+    darkText: "#222222",
+    lightText: "#fafafa",
+  },
+  fontSizes: {
+    sm: "0.8rem",
+    md: "1.15rem",
+    lg: "2.5rem",
+  },
 };

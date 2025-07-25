@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { SkillsTable } from "../../src/components/SkillsTable/SkillsTable";
-import { mockUserData } from "../mockUserData";
+import { mockUserData } from "../testData";
 
 describe("SkillsTable", () => {
   it("renders all skill rows", () => {
