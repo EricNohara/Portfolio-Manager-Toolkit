@@ -91,8 +91,9 @@ export const mockUserData: IUserData = {
         },
         {
           name: "Web Development",
-          grade: "A",
-          description: "Building modern web applications.",
+          grade: "-A",
+          description:
+            "Building modern web applications. Testing a very very long description which should overflow",
         },
       ],
     },

@@ -1,6 +1,6 @@
 import { themes } from "../../themes";
 import { ITheme } from "../../interfaces/ITheme";
-import { UserDataComponentProps } from "../../interfaces/ComponentProps";
+import { CourseTableProps } from "../../interfaces/ComponentProps";
 import { useState } from "react";
 import {
   Table,
@@ -10,21 +10,19 @@ import {
   SortIcon,
 } from "../shared/Table";
 
-export function SkillsTable({
-  userData,
+export function CourseTable({
+  courses,
   theme = "lightTheme",
   style,
-}: UserDataComponentProps) {
+}: CourseTableProps) {
   const selectedTheme: ITheme =
     typeof theme === "string" ? themes[theme] : theme;
-  const [sortBy, setSortBy] = useState<
-    "name" | "proficiency" | "years_of_experience"
-  >("name");
+  const [sortBy, setSortBy] = useState<"name" | "grade" | "description">(
+    "name"
+  );
   const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
 
-  const handleHeaderClick = (
-    key: "name" | "proficiency" | "years_of_experience"
-  ) => {
+  const handleHeaderClick = (key: "name" | "grade" | "description") => {
     if (sortBy === key) {
       setSortDir(sortDir === "asc" ? "desc" : "asc");
     } else {
@@ -38,21 +36,21 @@ export function SkillsTable({
   };
 
   const sortedSkills = sortBy
-    ? [...userData.skills].sort((a, b) => {
+    ? [...courses].sort((a, b) => {
         const aValue = a[sortBy] ?? "";
         const bValue = b[sortBy] ?? "";
         if (aValue < bValue) return sortDir === "asc" ? -1 : 1;
         if (aValue > bValue) return sortDir === "asc" ? 1 : -1;
         return 0;
       })
-    : userData.skills;
+    : courses;
 
   return (
     <Table theme={selectedTheme} style={style}>
       <colgroup>
-        <col style={{ width: "50%" }} />
-        <col style={{ width: "25%" }} />
-        <col style={{ width: "25%" }} />
+        <col style={{ width: "40%" }} />
+        <col style={{ width: "40%" }} />
+        <col style={{ width: "20%" }} />
       </colgroup>
       <thead>
         <tr>
@@ -70,11 +68,11 @@ export function SkillsTable({
           </TableHeader>
           <TableHeader
             theme={selectedTheme}
-            active={sortBy === "proficiency"}
-            onClick={() => handleHeaderClick("proficiency")}
+            active={sortBy === "description"}
+            onClick={() => handleHeaderClick("description")}
           >
-            Proficiency
-            {sortBy === "proficiency" && (
+            Description
+            {sortBy === "description" && (
               <SortIcon theme={selectedTheme} onClick={handleSortDirClick}>
                 {sortDir === "asc" ? " ▲" : " ▼"}
               </SortIcon>
@@ -82,11 +80,11 @@ export function SkillsTable({
           </TableHeader>
           <TableHeader
             theme={selectedTheme}
-            active={sortBy === "years_of_experience"}
-            onClick={() => handleHeaderClick("years_of_experience")}
+            active={sortBy === "grade"}
+            onClick={() => handleHeaderClick("grade")}
           >
-            Years of Experience
-            {sortBy === "years_of_experience" && (
+            Grade
+            {sortBy === "grade" && (
               <SortIcon theme={selectedTheme} onClick={handleSortDirClick}>
                 {sortDir === "asc" ? " ▲" : " ▼"}
               </SortIcon>
@@ -95,15 +93,13 @@ export function SkillsTable({
         </tr>
       </thead>
       <tbody>
-        {sortedSkills.map((skill, idx) => (
+        {sortedSkills.map((course, idx) => (
           <TableRow theme={selectedTheme} key={idx}>
-            <TableCell theme={selectedTheme}>{skill.name}</TableCell>
+            <TableCell theme={selectedTheme}>{course.name}</TableCell>
             <TableCell theme={selectedTheme}>
-              {skill.proficiency ?? "-"}
+              {course.description ?? "-"}
             </TableCell>
-            <TableCell theme={selectedTheme}>
-              {skill.years_of_experience ?? "-"}
-            </TableCell>
+            <TableCell theme={selectedTheme}>{course.grade ?? "-"}</TableCell>
           </TableRow>
         ))}
       </tbody>
