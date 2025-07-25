@@ -1,6 +1,6 @@
 {
   "name": "portfolio-manager-toolkit",
-  "version": "1.0.[",
+  "version": "1.0.3",
   "description": "React toolkit used to interface with portfolio manager",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
