@@ -12,29 +12,30 @@ const Table = styled.table<{ theme: ITheme }>`
 
 const TableRow = styled.tr<{ theme: ITheme }>`
   &:hover {
-    background-color: ${({ theme }) => theme.colors.secondary};
+    background-color: ${({ theme }) => theme.colors.primaryAlternate};
     filter: brightness(110%);
   }
 `;
 
 const TableCell = styled.td<{ theme: ITheme }>`
-  border: 1px solid ${({ theme }) => theme.colors.secondary};
+  border: 1px solid ${({ theme }) => theme.colors.primaryAlternate};
   padding: 1rem;
   text-align: left;
 `;
 
-const TableHeader = styled.th<{ theme: ITheme }>`
-  color: ${({ theme }) => theme.colors.lightText};
+const TableHeader = styled.th<{ theme: ITheme; active: boolean }>`
+  color: ${({ theme, active }) =>
+    active ? theme.colors.primaryAlternate : theme.colors.lightText};
   background-color: ${({ theme }) => theme.colors.primary};
   font-size: ${({ theme }) => theme.fontSizes.md};
-  border: 1px solid ${({ theme }) => theme.colors.secondary};
+  border: 1px solid ${({ theme }) => theme.colors.primaryAlternate};
   font-weight: bold;
   padding: 1rem;
   text-align: left;
   cursor: pointer;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.secondary};
+    color: ${({ theme }) => theme.colors.primaryAlternate};
   }
 `;
 
@@ -90,9 +91,10 @@ export function SkillsTable({
         <col style={{ width: "25%" }} />
       </colgroup>
       <thead>
-        <TableRow theme={selectedTheme}>
+        <tr>
           <TableHeader
             theme={selectedTheme}
+            active={sortBy === "name"}
             onClick={() => handleHeaderClick("name")}
           >
             Skill
@@ -104,6 +106,7 @@ export function SkillsTable({
           </TableHeader>
           <TableHeader
             theme={selectedTheme}
+            active={sortBy === "proficiency"}
             onClick={() => handleHeaderClick("proficiency")}
           >
             Proficiency
@@ -115,6 +118,7 @@ export function SkillsTable({
           </TableHeader>
           <TableHeader
             theme={selectedTheme}
+            active={sortBy === "years_of_experience"}
             onClick={() => handleHeaderClick("years_of_experience")}
           >
             Years of Experience
@@ -124,7 +128,7 @@ export function SkillsTable({
               </SortIcon>
             )}
           </TableHeader>
-        </TableRow>
+        </tr>
       </thead>
       <tbody>
         {sortedSkills.map((skill, idx) => (
