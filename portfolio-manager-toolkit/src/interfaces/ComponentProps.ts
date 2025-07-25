@@ -15,3 +15,9 @@ export type ComponentProps =
       theme?: keyof typeof themes;
       style?: CSSProperties;
     };
+
+export type UserDataComponentProps = {
+  userData: IUserData;
+  theme?: keyof typeof themes;
+  style?: CSSProperties;
+};

@@ -25,6 +25,26 @@ export const mockUserData: IUserData = {
       proficiency: 8,
       years_of_experience: 4,
     },
+    {
+      name: "TypeScript",
+      proficiency: 7,
+      years_of_experience: 3,
+    },
+    {
+      name: "CSS",
+      proficiency: 8,
+      years_of_experience: 5,
+    },
+    {
+      name: "Node.js",
+      proficiency: 6,
+      years_of_experience: 2,
+    },
+    {
+      name: "Python",
+      proficiency: 7,
+      years_of_experience: 4,
+    },
   ],
   experiences: [
     {

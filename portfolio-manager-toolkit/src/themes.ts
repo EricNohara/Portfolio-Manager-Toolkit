@@ -57,8 +57,8 @@ export const boldEndurance: ITheme = {
 export const trustInBlue: ITheme = {
   colors: {
     primary: "#3148F6",
-    secondary: "#1C2127",
-    tertiary: "#1C4B8F",
+    secondary: "#1C4B8F",
+    tertiary: "#1C2127",
     background: "#FFFFFF",
     darkText: "black",
     lightText: "white",
