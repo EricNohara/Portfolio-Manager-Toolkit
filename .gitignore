@@ -7,4 +7,6 @@ dist
 coverage/
 npm-debug.log*
 yarn-error.log*
-portfolio-manager-toolkit-1.0.0.tgz
+portfolio-manager-toolkit-*.tgz
+*storybook.log
+storybook-static

@@ -1,3 +1,9 @@
+// interfaces
 export * from "./src/interfaces/IUserData";
-export * from "./src/hooks/useUserData";
 export * from "./src/themes";
+
+// hooks
+export * from "./src/hooks/useUserData";
+
+// components
+export * from "./src/components/Greeting/Greeting";

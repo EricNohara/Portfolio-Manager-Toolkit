@@ -1,11 +1,7 @@
-import { IUserData } from "../interfaces/IUserData";
 import styled from "styled-components";
-import { themes } from "../themes";
-import { ITheme } from "../interfaces/ITheme";
-
-type GreetingProps =
-  | { userData: IUserData; message?: never; theme?: keyof typeof themes }
-  | { userData?: never; message: string; theme?: keyof typeof themes };
+import { themes } from "../../themes";
+import { ITheme } from "../../interfaces/ITheme";
+import { ComponentProps } from "../../interfaces/ComponentProps";
 
 const GreetingDiv = styled.div<{ theme: ITheme }>`
   color: ${({ theme }) => theme.colors.lightText};
@@ -13,15 +9,24 @@ const GreetingDiv = styled.div<{ theme: ITheme }>`
   font-size: ${({ theme }) => theme.fontSizes.lg};
   font-weight: bold;
   padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
 `;
 
 export function Greeting({
   userData,
   message,
   theme = "lightTheme",
-}: GreetingProps) {
+  style,
+}: ComponentProps) {
   const text: string = userData ? `Hi I'm ${userData.name}.` : message;
   const selectedTheme: ITheme = themes[theme];
 
-  return <GreetingDiv theme={selectedTheme}>{text}</GreetingDiv>;
+  return (
+    <GreetingDiv theme={selectedTheme} style={style}>
+      {text}
+    </GreetingDiv>
+  );
 }

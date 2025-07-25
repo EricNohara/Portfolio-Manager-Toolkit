@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { Greeting } from "../../src/components/Greeting";
+import { Greeting } from "../../src/components/Greeting/Greeting";
 import { mockUserData } from "../mockUserData";
 import "@testing-library/jest-dom";
 
