@@ -46,7 +46,7 @@ export function SocialIcons({
     typeof theme === "string" ? themes[theme] : theme;
 
   return (
-    <SocialIconsList>
+    <SocialIconsList style={style}>
       {userData.linkedin_url && (
         <SocialIconLink
           theme={selectedTheme}
