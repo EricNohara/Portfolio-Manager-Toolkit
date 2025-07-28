@@ -10,3 +10,4 @@ export * from "./src/hooks/useUserData";
 export * from "./src/components/Greeting/Greeting";
 export * from "./src/components/SkillsTable/SkillsTable";
 export * from "./src/components/CourseTable/CourseTable";
+export * from "./src/components/SocialIcons/SocialIcons";

@@ -2,23 +2,17 @@ import styled from "styled-components";
 import { themes } from "../../themes";
 import { ITheme } from "../../interfaces/ITheme";
 import { UserDataComponentProps } from "../../interfaces/ComponentProps";
-import { GithubIcon, EmailIcon, InstagramIcon, LinkedinIcon } from "./Icons";
-
-const GreetingDiv = styled.div<{ theme: ITheme }>`
-  color: ${({ theme }) => theme.colors.lightText};
-  background-color: ${({ theme }) => theme.colors.primary};
-  font-size: ${({ theme }) => theme.fontSizes.lg};
-  font-weight: bold;
-  padding: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-`;
+import {
+  GithubIcon,
+  EmailIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  FacebookIcon,
+} from "./Icons";
 
 const SocialIconsList = styled.ul`
   display: flex;
-  gap: 5%;
+  gap: 4%;
   align-items: center;
   justify-content: center;
   list-style: none;
@@ -28,9 +22,18 @@ const SocialIconLink = styled.a<{ theme: ITheme }>`
   cursor: pointer;
   text-decoration: none;
   color: ${({ theme }) => theme.colors.tertiary};
+  transition: color 0.1s ease;
+
+  & > svg {
+    transition: transform 0.2s ease;
+  }
 
   &:hover {
     color: ${({ theme }) => theme.colors.tertiaryAlternate};
+
+    & > svg {
+      transform: scale(1.1);
+    }
   }
 `;
 
@@ -86,6 +89,17 @@ export function SocialIcons({
           aria-label="Find me on instagram"
         >
           <InstagramIcon fontSize="5rem" />
+        </SocialIconLink>
+      )}
+      {userData.facebook_url && (
+        <SocialIconLink
+          theme={selectedTheme}
+          href={userData.facebook_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Find me on facebook"
+        >
+          <FacebookIcon fontSize="5rem" />
         </SocialIconLink>
       )}
     </SocialIconsList>
