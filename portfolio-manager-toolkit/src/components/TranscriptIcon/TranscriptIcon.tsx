@@ -20,7 +20,7 @@ export function TranscriptIcon({
         href={userData.resume_url}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="View my resume"
+        aria-label="View my transcript"
       >
         <EducationIcon fontSize="5rem" />
       </SocialIconLink>
