@@ -18,8 +18,8 @@ describe("TranscriptIcon", () => {
     const missingResumeUserData: IUserData = {
       ...mockUserData,
     };
-
     missingResumeUserData.resume_url = null;
+
     render(<TranscriptIcon userData={missingResumeUserData} />);
     expect(screen.queryByLabelText(/view my resume/i)).toBeNull();
   });
