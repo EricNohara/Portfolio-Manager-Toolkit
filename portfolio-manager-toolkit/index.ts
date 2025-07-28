@@ -11,3 +11,5 @@ export * from "./src/components/Greeting/Greeting";
 export * from "./src/components/SkillsTable/SkillsTable";
 export * from "./src/components/CourseTable/CourseTable";
 export * from "./src/components/SocialIcons/SocialIcons";
+export * from "./src/components/TranscriptIcon/TranscriptIcon";
+export * from "./src/components/ResumeIcon/ResumeIcon";
