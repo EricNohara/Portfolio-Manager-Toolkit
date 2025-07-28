@@ -1,10 +1,10 @@
 import { themes } from "../../themes";
 import { ITheme } from "../../interfaces/ITheme";
 import { UserDataComponentProps } from "../../interfaces/ComponentProps";
-import { EducationIcon } from "../SocialIcons/Icons";
+import { UserDocumentIcon } from "../shared/Icons";
 import { SocialIconLink } from "../shared/SocialIconLink";
 
-export function TranscriptIcon({
+export function ResumeIcon({
   userData,
   theme = "lightTheme",
   style,
@@ -22,7 +22,7 @@ export function TranscriptIcon({
         rel="noopener noreferrer"
         aria-label="View my resume"
       >
-        <EducationIcon fontSize="5rem" />
+        <UserDocumentIcon fontSize="5rem" />
       </SocialIconLink>
     )
   );

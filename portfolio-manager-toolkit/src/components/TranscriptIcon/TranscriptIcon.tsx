@@ -1,7 +1,7 @@
 import { themes } from "../../themes";
 import { ITheme } from "../../interfaces/ITheme";
 import { UserDataComponentProps } from "../../interfaces/ComponentProps";
-import { EducationIcon } from "../SocialIcons/Icons";
+import { EducationIcon } from "../shared/Icons";
 import { SocialIconLink } from "../shared/SocialIconLink";
 
 export function TranscriptIcon({
@@ -13,11 +13,11 @@ export function TranscriptIcon({
     typeof theme === "string" ? themes[theme] : theme;
 
   return (
-    userData.resume_url && (
+    userData.transcript_url && (
       <SocialIconLink
         style={style}
         theme={selectedTheme}
-        href={userData.resume_url}
+        href={userData.transcript_url}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="View my transcript"

@@ -8,7 +8,7 @@ import {
   InstagramIcon,
   LinkedinIcon,
   FacebookIcon,
-} from "./Icons";
+} from "../shared/Icons";
 
 const SocialIconsList = styled.ul`
   display: flex;

@@ -83,7 +83,7 @@ export function EducationIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-export function ResumeIcon(props: React.SVGProps<SVGSVGElement>) {
+export function UserDocumentIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       viewBox="0 0 24 24"
