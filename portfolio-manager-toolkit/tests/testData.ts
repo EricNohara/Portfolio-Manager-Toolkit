@@ -15,6 +15,7 @@ export const mockUserData: IUserData = {
   instagram_url: "https://instagram.com/janedoe",
   facebook_url: "https://facebook.com/janedoe",
   bio: "Full-stack developer with a passion for building portfolio websites.",
+  current_position: "Software engineer and college student",
   skills: [
     {
       name: "JavaScript",
